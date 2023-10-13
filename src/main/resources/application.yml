@@ -1,0 +1,34 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+spring:
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/web1?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: root
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    open-in-view: false
+    show-sql: true
+
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    resources:
+      static-locations: classpath:/static
+    static-path-pattern: /static/**
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
