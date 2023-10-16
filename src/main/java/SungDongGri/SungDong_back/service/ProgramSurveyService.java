@@ -1,5 +1,6 @@
 package SungDongGri.SungDong_back.service;
 
+import SungDongGri.SungDong_back.base.PageResult;
 import SungDongGri.SungDong_back.domain.ProgramSurvey;
 import SungDongGri.SungDong_back.domain.SurveyItem;
 import SungDongGri.SungDong_back.dto.ProgramSurveyRequestDto;
@@ -9,6 +10,7 @@ import SungDongGri.SungDong_back.exception.CustomException;
 import SungDongGri.SungDong_back.exception.ErrorCode;
 import SungDongGri.SungDong_back.repository.ProgramSurveyRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,4 +49,25 @@ public class ProgramSurveyService {
         return programSurvey.getId();
     }
 
+    @Transactional
+    public void deleteSurvey(Long surveyId){
+        ProgramSurvey programSurvey = programSurveyRepository.findById(surveyId).orElseThrow(()->new CustomException(ErrorCode.NOT_FOUND));
+        programSurveyRepository.deleteById(programSurvey.getId());
+    }
+
+    @Transactional
+    public PageResult<ProgramSurveyResponseDto> getSurveyList(Long surveyId, Pageable pageable){
+        return PageResult.ok(programSurveyRepository.findAllById(surveyId,pageable).map(ProgramSurveyResponseDto::of));
+    }
+
+    @Transactional
+    public List<ProgramSurvey> getAllSurvey(){
+        return programSurveyRepository.findAll();
+    }
+
+    @Transactional
+    public ProgramSurveyResponseDto detailSurvey(Long surveyId){
+        ProgramSurvey programSurvey = programSurveyRepository.findById(surveyId).orElseThrow(()->new CustomException(ErrorCode.NOT_FOUND));
+        return ProgramSurveyResponseDto.of(programSurvey);
+    }
 }

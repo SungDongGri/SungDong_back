@@ -1,6 +1,5 @@
 package SungDongGri.SungDong_back.service;
 
-import SungDongGri.SungDong_back.base.BaseResponse;
 import SungDongGri.SungDong_back.base.PageResult;
 import SungDongGri.SungDong_back.domain.Notice;
 import SungDongGri.SungDong_back.dto.NoticeRequestDto;
@@ -9,8 +8,6 @@ import SungDongGri.SungDong_back.exception.CustomException;
 import SungDongGri.SungDong_back.exception.ErrorCode;
 import SungDongGri.SungDong_back.repository.NoticeRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
