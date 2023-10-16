@@ -1,6 +1,5 @@
 package SungDongGri.SungDong_back.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 

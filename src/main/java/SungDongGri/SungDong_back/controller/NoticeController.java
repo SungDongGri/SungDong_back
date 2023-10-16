@@ -8,9 +8,7 @@ import SungDongGri.SungDong_back.dto.NoticeRequestDto;
 import SungDongGri.SungDong_back.dto.NoticeResponseDto;
 import SungDongGri.SungDong_back.service.NoticeService;
 import lombok.RequiredArgsConstructor;
-import org.aspectj.weaver.ast.Not;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
