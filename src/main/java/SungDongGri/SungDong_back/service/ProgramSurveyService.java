@@ -67,7 +67,7 @@ public class ProgramSurveyService {
 
     @Transactional
     public ProgramSurveyResponseDto detailSurvey(Long surveyId){
-        ProgramSurvey programSurvey = programSurveyRepository.findById(surveyId).orElseThrow(()->new CustomException(ErrorCode.NOT_FOUND));
+        ProgramSurvey programSurvey = programSurveyRepository.findProgramSurveyWithItemsById(surveyId);
         return ProgramSurveyResponseDto.of(programSurvey);
     }
 }

@@ -42,7 +42,7 @@ public class ProgramSurveyController {
     }
 
     @GetMapping("/{surveyId}")
-    public BaseResponse<ProgramSurveyResponseDto> getDetailSurvey(@RequestParam Long surveyId){
+    public BaseResponse<ProgramSurveyResponseDto> getDetailSurvey(@PathVariable Long surveyId){
         return BaseResponse.ok(programSurveyService.detailSurvey(surveyId));
     }
 
